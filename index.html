@@ -4,44 +4,105 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Interactive Visualizations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 2rem;
-      background: #f9f9f9;
-      color: #333;
+    /* Reset some default styles */
+    * {
+      box-sizing: border-box;
     }
+
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background-color: #f5f6fa;
+      color: #333;
+      margin: 0;
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 700px;
+      width: 100%;
+    }
+
     h1 {
       color: #10008f;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      font-size: 2.4rem;
     }
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    li {
-      margin-bottom: 1rem;
-    }
-    a {
-      text-decoration: none;
-      color: #0066cc;
+
+    p {
+      text-align: center;
+      color: #555;
+      margin-bottom: 2rem;
       font-size: 1.1rem;
     }
-    a:hover {
-      text-decoration: underline;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 600px) {
+      ul {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    li {
+      /* no bullets */
+    }
+
+    a {
+      display: block;
+      background: white;
+      padding: 1rem 1.2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(16, 0, 143, 0.15);
+      color: #10008f;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      border: 1px solid transparent;
+      user-select: none;
+    }
+
+    a:hover,
+    a:focus {
+      box-shadow: 0 6px 12px rgba(16, 0, 143, 0.3);
+      transform: translateY(-3px);
+      border-color: #10008f;
+      outline: none;
+    }
+
+    a:active {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(16, 0, 143, 0.25);
     }
   </style>
 </head>
 <body>
-  <h1>Interactive Visualizations</h1>
-  <p>Click on any visualization below to open it:</p>
-  <ul>
-    <li><a href="UB_24_topics_15_neighbors.html">UB works with topic embeddings</a></li>
-    <li><a href="UB_24_works_nomic_15_neighbors.html">UB works with Nomic embeddings</a></li>
-    <li><a href="UB_24_works_specter2_15_neighbors.html">UB works with SPECTER2 embeddings</a></li>
-    <li><a href="UB_24_works_st_15_neighbors.html">UB works with Sentence Transformers embeddings</a></li>
-    <li><a href="Utrecht_24_topics_15_neighbors.html">Utrecht works with topic embeddings</a></li>
-    <li><a href="Utrecht_24_works_nomic_15_neighbors.html">Utrecht works with Nomic embeddings</a></li>
-    <li><a href="UB_vs_Utrecht_authors_nomic_15_byInstitution.html">UB and Utrecht authors</a></li>
-  </ul>
+  <div class="container">
+    <h1>Interactive Visualizations</h1>
+    <p>Click on any visualization below to open it:</p>
+    <ul>
+      <li><a href="UB_24_topics_15_neighbors.html">UB works with topic embeddings</a></li>
+      <li><a href="UB_24_works_st_15_neighbors.html">UB works with Sentence Transformers embeddings</a></li>
+      <li><a href="UB_24_works_nomic_15_neighbors.html">UB works with Nomic embeddings</a></li>
+      <li><a href="UB_24_works_specter2_15_neighbors.html">UB works with SPECTER2 embeddings</a></li>
+      <li><a href="Utrecht_24_topics_15_neighbors.html">Utrecht works with topic embeddings</a></li>
+      <li><a href="Utrecht_24_works_nomic_15_neighbors.html">Utrecht works with Nomic embeddings</a></li>
+      <li><a href="UB_vs_Utrecht_authors_nomic_15_byInstitution.html">UB and Utrecht authors</a></li>
+    </ul>
+  </div>
 </body>
 </html>
