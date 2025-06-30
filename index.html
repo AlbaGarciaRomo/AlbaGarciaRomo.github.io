@@ -10,116 +10,124 @@
       box-sizing: border-box;
     }
 
-    body {
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
       font-family: 'Inter', Arial, sans-serif;
       background-color: #f5f6fa;
       color: #333;
-      margin: 0;
-      padding: 2rem 1rem;
       display: flex;
       justify-content: center;
-      min-height: 100vh;
+      align-items: center;
+      text-align: center;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 960px;
       width: 100%;
+      padding: 2rem 1rem;
     }
 
     h1 {
       color: #10008f;
-      text-align: center;
-      margin-bottom: 0.5rem;
       font-weight: 700;
-      font-size: 2.4rem;
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
     }
 
     p {
-      text-align: center;
       color: #555;
-      margin-bottom: 2rem;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      margin-bottom: 3rem;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+    .section {
+      margin-bottom: 3rem;
     }
 
     .section-header {
-      grid-column: span 3;
       font-weight: 700;
-      font-size: 1.5rem;
+      font-size: 2rem;
       color: #10008f;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #10008f;
-      padding-bottom: 0.25rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 3px solid #10008f;
+      padding-bottom: 0.3rem;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .topic-columns {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .subheader {
       font-weight: 600;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       color: #333;
-      margin-bottom: 0.75rem;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 0.2rem;
+      margin-bottom: 1rem;
+      border-bottom: 1.5px solid #ccc;
+      padding-bottom: 0.3rem;
+      text-align: left;
     }
 
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
+      text-align: left;
     }
 
     li {
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
     }
 
     a {
       display: block;
       background: white;
-      padding: 1rem 1.2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(16, 0, 143, 0.15);
+      padding: 1.3rem 1.6rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(16, 0, 143, 0.18);
       color: #10008f;
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       text-decoration: none;
       transition: transform 0.15s ease, box-shadow 0.15s ease;
-      border: 1px solid transparent;
+      border: 1.5px solid transparent;
       user-select: none;
+      border-radius: 12px;
     }
 
     a:hover,
     a:focus {
-      box-shadow: 0 6px 12px rgba(16, 0, 143, 0.3);
-      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(16, 0, 143, 0.35);
+      transform: translateY(-4px);
       border-color: #10008f;
       outline: none;
     }
 
     a:active {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 8px rgba(16, 0, 143, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(16, 0, 143, 0.3);
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 900px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-      .section-header {
-        grid-column: span 1;
-      }
+    /* Responsive */
+    @media (max-width: 750px) {
       .topic-columns {
         grid-template-columns: 1fr;
+        max-width: 100%;
+      }
+      .subheader, ul, li, a {
+        text-align: center;
+      }
+      ul {
+        padding-left: 0;
       }
     }
   </style>
@@ -129,9 +137,8 @@
     <h1>Interactive Visualizations</h1>
     <p>Click on any visualization below to open it:</p>
 
-    <div class="section-header">Topic Relationships</div>
-    <div class="grid">
-      <!-- Topic Relationships - two columns -->
+    <section class="section" aria-labelledby="topic-relationships-header">
+      <h2 id="topic-relationships-header" class="section-header">Topic Relationships</h2>
       <div class="topic-columns">
         <div>
           <div class="subheader">University of Barcelona</div>
@@ -150,15 +157,14 @@
           </ul>
         </div>
       </div>
+    </section>
 
-      <!-- Author Relationships -->
-      <div>
-        <div class="subheader">Author Relationships</div>
-        <ul>
-          <li><a href="UB_vs_Utrecht_authors_nomic_15_byInstitution.html">UB and Utrecht authors</a></li>
-        </ul>
-      </div>
-    </div>
+    <section class="section" aria-labelledby="author-relationships-header">
+      <h2 id="author-relationships-header" class="section-header">Author Relationships</h2>
+      <ul style="max-width: 300px; margin-left:auto; margin-right:auto; text-align:left;">
+        <li><a href="UB_vs_Utrecht_authors_nomic_15_byInstitution.html">UB and Utrecht authors</a></li>
+      </ul>
+    </section>
   </div>
 </body>
 </html>
