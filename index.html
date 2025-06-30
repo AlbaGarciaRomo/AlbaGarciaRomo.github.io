@@ -22,6 +22,8 @@
       align-items: center;
       text-align: center;
       min-height: 100vh;
+      font-size: 14px; /* overall smaller base font */
+      line-height: 1.4;
     }
 
     .container {
@@ -30,18 +32,37 @@
       padding: 2rem 1rem;
     }
 
-    h1 {
+    /* New Title and Author */
+    .title-main {
+      font-weight: 800;
+      font-size: 2.2rem;
       color: #10008f;
+      margin-bottom: 0.2rem;
+      user-select: none;
+    }
+    .title-author {
+      font-weight: 500;
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+      user-select: none;
+      font-style: italic;
+    }
+
+    /* Subtitle like current h1 */
+    .subtitle {
       font-weight: 700;
-      font-size: 2.8rem;
+      font-size: 1.8rem;
+      color: #10008f;
       margin-bottom: 2.5rem;
+      user-select: none;
     }
 
     /* Main grid: two columns */
     .main-grid {
       display: grid;
       grid-template-columns: 2fr 1fr; /* Topic bigger, Author smaller */
-      gap: 3rem;
+      gap: 2.5rem;
       text-align: left;
       align-items: start;
     }
@@ -49,36 +70,37 @@
     /* Section headers */
     .section-header {
       font-weight: 700;
-      font-size: 2rem;
+      font-size: 1.3rem; /* smaller */
       color: #10008f;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
       border-bottom: 3px solid #10008f;
       padding-bottom: 0.3rem;
       max-width: 300px;
+      user-select: none;
     }
 
     /* Topic Relationships container */
     .topic-container {
       display: flex;
       flex-direction: column;
-      gap: 2.5rem;
+      gap: 2rem;
     }
 
     /* UB grid: 2x2 for the 4 links */
     .ub-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
+      gap: 1.2rem;
     }
 
     .ub-grid a {
       background: white;
-      padding: 1.3rem 1.6rem;
+      padding: 1rem 1.2rem;
       border-radius: 12px;
       box-shadow: 0 3px 10px rgba(16, 0, 143, 0.18);
       color: #10008f;
       font-weight: 600;
-      font-size: 1.2rem;
+      font-size: 1rem;
       text-decoration: none;
       transition: transform 0.15s ease, box-shadow 0.15s ease;
       border: 1.5px solid transparent;
@@ -93,50 +115,28 @@
       padding: 0;
       margin: 0;
       display: flex;
-      gap: 1.5rem;
+      gap: 1.2rem;
       justify-content: flex-start;
     }
     .utrecht-row li {
       margin: 0;
       flex: 1;
-      max-width: 300px;
+      max-width: 280px;
     }
     .utrecht-row a {
       display: block;
       background: white;
-      padding: 1.3rem 1.6rem;
+      padding: 1rem 1.2rem;
       border-radius: 12px;
       box-shadow: 0 3px 10px rgba(16, 0, 143, 0.18);
       color: #10008f;
       font-weight: 600;
-      font-size: 1.2rem;
+      font-size: 1rem;
       text-decoration: none;
       transition: transform 0.15s ease, box-shadow 0.15s ease;
       border: 1.5px solid transparent;
       user-select: none;
       text-align: center;
-    }
-
-    a:hover,
-    a:focus {
-      box-shadow: 0 8px 20px rgba(16, 0, 143, 0.35);
-      transform: translateY(-4px);
-      border-color: #10008f;
-      outline: none;
-    }
-
-    a:active {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(16, 0, 143, 0.3);
-    }
-
-    .subheader {
-      font-weight: 600;
-      font-size: 1.4rem;
-      color: #333;
-      margin-bottom: 1rem;
-      border-bottom: 1.5px solid #ccc;
-      padding-bottom: 0.3rem;
     }
 
     /* Author Relationships list */
@@ -148,17 +148,17 @@
       max-width: 300px;
     }
     .author-list li {
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
     .author-list a {
       display: block;
       background: white;
-      padding: 1.3rem 1.6rem;
+      padding: 1rem 1.2rem;
       border-radius: 12px;
       box-shadow: 0 3px 10px rgba(16, 0, 143, 0.18);
       color: #10008f;
       font-weight: 600;
-      font-size: 1.2rem;
+      font-size: 1rem;
       text-decoration: none;
       transition: transform 0.15s ease, box-shadow 0.15s ease;
       border: 1.5px solid transparent;
@@ -166,8 +166,46 @@
       text-align: center;
     }
 
+    /* Unified hover/focus/active for all links including author */
+    .ub-grid a:hover,
+    .ub-grid a:focus,
+    .utrecht-row a:hover,
+    .utrecht-row a:focus,
+    .author-list a:hover,
+    .author-list a:focus {
+      box-shadow: 0 8px 20px rgba(16, 0, 143, 0.35);
+      transform: translateY(-4px);
+      border-color: #10008f;
+      outline: none;
+    }
+
+    .ub-grid a:active,
+    .utrecht-row a:active,
+    .author-list a:active {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(16, 0, 143, 0.3);
+    }
+
+    a:hover,
+    a:focus {
+      cursor: pointer;
+    }
+
+    .subheader {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 0.8rem;
+      border-bottom: 1.5px solid #ccc;
+      padding-bottom: 0.3rem;
+      user-select: none;
+    }
+
     /* Responsive adjustments */
     @media (max-width: 900px) {
+      body, html {
+        font-size: 13px;
+      }
       .main-grid {
         grid-template-columns: 1fr;
         text-align: center;
@@ -187,7 +225,10 @@
 </head>
 <body>
   <div class="container">
-    <h1>Interactive Visualizations</h1>
+    <div class="title-main">Exploring Academic Relationships with UMAP and OpenAlex</div>
+    <div class="title-author">by Alba Garcia Romo</div>
+    <div class="subtitle">Interactive Visualizations</div>
+
     <div class="main-grid">
       <!-- Topic Relationships -->
       <section aria-labelledby="topic-relationships-header">
