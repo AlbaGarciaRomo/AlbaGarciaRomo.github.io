@@ -21,6 +21,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
+      min-height: 100vh;
     }
 
     .container {
@@ -33,19 +34,19 @@
       color: #10008f;
       font-weight: 700;
       font-size: 2.8rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 2.5rem;
     }
 
-    p {
-      color: #555;
-      font-size: 1.2rem;
-      margin-bottom: 3rem;
+    /* Main grid with 2 columns below the title */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr; /* Topic bigger, Author smaller */
+      gap: 3rem;
+      text-align: left;
+      align-items: start;
     }
 
-    .section {
-      margin-bottom: 3rem;
-    }
-
+    /* Section headers */
     .section-header {
       font-weight: 700;
       font-size: 2rem;
@@ -54,17 +55,13 @@
       border-bottom: 3px solid #10008f;
       padding-bottom: 0.3rem;
       max-width: 300px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
+    /* Topic relationships: inside, 2 columns */
     .topic-columns {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap: 2rem;
-      max-width: 720px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     .subheader {
@@ -74,14 +71,12 @@
       margin-bottom: 1rem;
       border-bottom: 1.5px solid #ccc;
       padding-bottom: 0.3rem;
-      text-align: left;
     }
 
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
-      text-align: left;
     }
 
     li {
@@ -92,7 +87,7 @@
       display: block;
       background: white;
       padding: 1.3rem 1.6rem;
-      border-radius: 10px;
+      border-radius: 12px;
       box-shadow: 0 3px 10px rgba(16, 0, 143, 0.18);
       color: #10008f;
       font-weight: 600;
@@ -101,7 +96,6 @@
       transition: transform 0.15s ease, box-shadow 0.15s ease;
       border: 1.5px solid transparent;
       user-select: none;
-      border-radius: 12px;
     }
 
     a:hover,
@@ -117,17 +111,16 @@
       box-shadow: 0 6px 14px rgba(16, 0, 143, 0.3);
     }
 
-    /* Responsive */
-    @media (max-width: 750px) {
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
       .topic-columns {
         grid-template-columns: 1fr;
-        max-width: 100%;
       }
-      .subheader, ul, li, a {
+      .section-header, .subheader, ul, li, a {
         text-align: center;
-      }
-      ul {
-        padding-left: 0;
       }
     }
   </style>
@@ -135,36 +128,38 @@
 <body>
   <div class="container">
     <h1>Interactive Visualizations</h1>
-    <p>Click on any visualization below to open it:</p>
-
-    <section class="section" aria-labelledby="topic-relationships-header">
-      <h2 id="topic-relationships-header" class="section-header">Topic Relationships</h2>
-      <div class="topic-columns">
-        <div>
-          <div class="subheader">University of Barcelona</div>
-          <ul>
-            <li><a href="UB_24_topics_15_neighbors.html">UB works with topic embeddings</a></li>
-            <li><a href="UB_24_works_st_15_neighbors.html">UB works with Sentence Transformers embeddings</a></li>
-            <li><a href="UB_24_works_nomic_15_neighbors.html">UB works with Nomic embeddings</a></li>
-            <li><a href="UB_24_works_specter2_15_neighbors.html">UB works with SPECTER2 embeddings</a></li>
-          </ul>
+    <div class="main-grid">
+      <!-- Topic Relationships -->
+      <section aria-labelledby="topic-relationships-header">
+        <h2 id="topic-relationships-header" class="section-header">Topic Relationships</h2>
+        <div class="topic-columns">
+          <div>
+            <div class="subheader">University of Barcelona</div>
+            <ul>
+              <li><a href="UB_24_topics_15_neighbors.html">UB works with topic embeddings</a></li>
+              <li><a href="UB_24_works_st_15_neighbors.html">UB works with Sentence Transformers embeddings</a></li>
+              <li><a href="UB_24_works_nomic_15_neighbors.html">UB works with Nomic embeddings</a></li>
+              <li><a href="UB_24_works_specter2_15_neighbors.html">UB works with SPECTER2 embeddings</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="subheader">Utrecht University</div>
+            <ul>
+              <li><a href="Utrecht_24_topics_15_neighbors.html">Utrecht works with topic embeddings</a></li>
+              <li><a href="Utrecht_24_works_nomic_15_neighbors.html">Utrecht works with Nomic embeddings</a></li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <div class="subheader">Utrecht University</div>
-          <ul>
-            <li><a href="Utrecht_24_topics_15_neighbors.html">Utrecht works with topic embeddings</a></li>
-            <li><a href="Utrecht_24_works_nomic_15_neighbors.html">Utrecht works with Nomic embeddings</a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section" aria-labelledby="author-relationships-header">
-      <h2 id="author-relationships-header" class="section-header">Author Relationships</h2>
-      <ul style="max-width: 300px; margin-left:auto; margin-right:auto; text-align:left;">
-        <li><a href="UB_vs_Utrecht_authors_nomic_15_byInstitution.html">UB and Utrecht authors</a></li>
-      </ul>
-    </section>
+      <!-- Author Relationships -->
+      <section aria-labelledby="author-relationships-header">
+        <h2 id="author-relationships-header" class="section-header">Author Relationships</h2>
+        <ul>
+          <li><a href="UB_vs_Utrecht_authors_nomic_15_byInstitution.html">UB and Utrecht authors</a></li>
+        </ul>
+      </section>
+    </div>
   </div>
 </body>
 </html>
